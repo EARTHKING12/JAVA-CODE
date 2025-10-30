@@ -1,20 +1,29 @@
-class Solution {
-    public boolean isPalindrome(int x) {
-        if(x<0){
-            return false ;
+import java.util.Scanner;
+
+public class PalindromeNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input number
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        sc.close();
+
+        int original = num;
+        int reversed = 0;
+
+        // Reverse the number
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
         }
-        int n = x ;
-        int revNum = 0 ;
-        while(n>0){
-            int d = n%10 ;
-            revNum = revNum*10 + d ;
-            n = n/10 ;
-        }
-        if(revNum == x ){
-            return true ;
-        }
-        else{
-            return false ;
+
+        // Check if palindrome
+        if (original == reversed) {
+            System.out.println(original + " is a Palindrome number.");
+        } else {
+            System.out.println(original + " is NOT a Palindrome number.");
         }
     }
 }
